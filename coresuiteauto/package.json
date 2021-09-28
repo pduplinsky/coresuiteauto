@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "cypress": "^7.6.0",
+    "cypress-xpath": "^1.6.2",
+    "read-excel-file": "^5.1.0",
+    "xlsx-converter": "^0.1.0"
+  },
+  "scripts": {
+    "cy:run": " npx cypress run --browser chrome",
+    "open": "cypress open"
+  }
+}
