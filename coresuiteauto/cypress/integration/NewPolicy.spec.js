@@ -100,13 +100,7 @@ import { CustomCypress } from '../support/commands';
               // console.log(policyNum.split(" ")[2]);
             });
 
-            cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button.spml-primary").click();
-            cy.get("#user\\.button").click();
-            cy.get("#logout\\.button").click();
-            cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button.spml-primary").click();
-        
-
-
+       
                                cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button.spml-primary",{timeout:100000}).click({force:true});
 
                               //new payment
