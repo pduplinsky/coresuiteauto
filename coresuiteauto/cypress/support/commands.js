@@ -1,19 +1,14 @@
 
-Cypress.Commands.add("login",() => {
+Cypress.Commands.add("login",(user,pwd,db) => {
     cy.visit("https://gjensidige-coresuite-sit.sapiensmgs.com/coresuite_pl/coresuite");
-    cy.insertText("#user\\.name","Clerk");
-    cy.insertText("#user\\.password","a");
-    cy.selectFromDropdown('#login-combo',"GPF_SIT_Automation");
+    cy.insertText("#user\\.name",user);
+    cy.insertText("#user\\.password",pwd);
+    cy.selectFromDropdown('#login-combo',db);
     cy.get("#login\\.button").click();
     cy.wait(2000);
 });
 
 Cypress.Commands.add("selectFromDropdownTest",(selector,valueToPick) => {
-
-  // if(cy.get("body").children("#overlay").find("#scroller").length < 1){
-  //   cy.get("#content",{force:true}).contains(valueToPick).click({force:true,multiple:true});
-  // }
-    
   cy.get(selector).click().then((slt)=>{
  
         cy.get("#overlay").find("#content").find("#scroller").first().then((scr)=>{

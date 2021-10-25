@@ -162,6 +162,46 @@ import { CustomCypress } from '../support/commands';
 
                       // it("Unit Dealing Process -> Run Unit Dealing Audit",function() {
                       // Cypress.Cookies.defaults({ preserve: /.*/ });
+                
+                     //Unit Dealing construction
+                     cy.get("#shell\\/menu\\/controlPanel",{timeout:100000}).click();
+                     cy.get("#shell\\/menu\\/batch",{timeout:100000}).click();
+                     cy.selectFromDropdown("#Batch\\/batch\\.batchName","Unit Dealing Construction");
+                     cy.get("#Batch\\/batch\\.run",{timeout:100000}).click();
+                     cy.get("#Batch\\/batch\\.retrieve",{timeout:100000}).click();
+                     cy.get("#Batch\\/cancelButton",{timeout:100000}).click();
+                     cy.get("div > vaadin-menu-bar-button:nth-child(4)").click({force:true});
+                     cy.get("#shell\\/menu\\/menu\\.investmentManagement\\.unitDealingExecution",{timeout:100000}).click();
+                     cy.get("#UnitDealingQuery\\/searchButton").click({force:true,timeout:100000});
+                     cy.get("#UnitDealingQuery\\/colOrderReference",{timeout:100000}).invoke("text").then((text) => {           
+                       cy.wrap(text).as('orderReference');
+                     })
+                     cy.selectFromDropdown("#UnitDealingQuery\\/searchResultstable > vaadin-grid-cell-content:nth-child(16)","Sent");
+                     cy.get("#UnitDealingTabs\\/saveButton",{timeout:100000}).click();
+                     cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > label").should("have.text","Saved successfully.");
+                     cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout").find("#button",{timeout:100000}).click();
+                     cy.get("#UnitDealingTabs\\/multiview > div.spml-multiview-label-and-tabs > vaadin-tabs > vaadin-tab:nth-child(2)",{timeout:100000}).click({force:true}).then(()=>{
+                     })
+                cy.get('#UnitDealingTabs\\/contractNote > #UnitDealingQuery\\/searchParamsSection > #UnitDealingQuery\\/searchParamsForm > .spml-container > #UnitDealingQuery\\/upperSearchSection > :nth-child(4) > .spml-cell > #UnitDealingQuery\\/searchButton').click();   
+                     cy.get("@orderReference").then((order) => {
+                      cy.get("#UnitDealingTabs\\/contractNote").find("#UnitDealingQuery\\/searchResultsSection").find("#UnitDealingQuery\\/searchResultstable").find("#table").scrollTo("bottom").then(()=>{
+                        cy.get("#UnitDealingTabs\\/contractNote").find("#UnitDealingQuery\\/searchResultsSection").find("#UnitDealingQuery\\/searchResultstable").find("vaadin-grid-cell-content").contains(parseInt(order)).dblclick({force:true,timeout:10000}).then(()=>{
+                      })
+                    })
+                   });
+   cy.get('#UnitDealingTabs\\/contractNote > #UnitDealingQuery\\/instructionDetailsView > .spml-grid-container > #UnitDealingQuery\\/detailsTable > [slot="vaadin-grid-cell-content-1"] > flow-component-renderer > #UnitDealingQuery\\/instructionDetailNo').click({timeout:10000}).then(()=>{
+    cy.get('#UnitDealingTabs\\/contractNote > #UnitDealingQuery\\/instructionDetailsView > .spml-grid-container > .spml-commandbar > .pull-left > #instructionDetailsView_openLightbox').click({timeout:10000});
+   })
+                      
+                cy.get("#UnitDealingQuery\\/colDealingStatus").eq(1).click({force:true}).get("#selector > vaadin-combo-box-item:nth-child(2)").click();
+                
+                  //cy.selectFromDropdown("#UnitDealingQuery\\/colDealingStatus","Ready to Confirm");
+
+                  cy.insertText("UnitDealingQuery\\/actualUnitPrice","1115");
+                  cy.insertText("UnitDealingQuery\\/actualFundMonetaryAmount",2500);
+                  cy.get("#instructionDetailsView_lightbox_done").click();
+
+                    return;
                       cy.get("#shell\\/menu\\/controlPanel",{timeout:100000}).click();
                       cy.get("#shell\\/menu\\/batch",{timeout:100000}).click();
                       cy.selectFromDropdown("#Batch\\/batch\\.batchName","Unit Dealing (Testing)");
@@ -212,7 +252,7 @@ import { CustomCypress } from '../support/commands';
                              cy.get("#instructionDetailsView_openLightbox").click();
                       
                              
-//cy.get("#UnitDealingQuery\\/instructionDetailsView").find("#button").first().click();
+                    //cy.get("#UnitDealingQuery\\/instructionDetailsView").find("#button").first().click();
 
                     //  cy.get("#UnitDealingQuery\\/detailsForm").find("#UnitDealingQuery\\/colDealingStatus").click();
                       
