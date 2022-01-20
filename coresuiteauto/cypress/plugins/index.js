@@ -23,4 +23,33 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
 } 
 
+// v4
+module.exports = (on, config) => {
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    if (browser.family === 'chromium') {
+      launchOptions.args.push('--disable-dev-shm-usage');
+    }
+
+    return launchOptions;
+  });
+}
+
+// // cypress/plugins/index.js
+// module.exports = (on, config) => {
+//   on('task', {
+//     failed: require('cypress-failed-log/src/failed')(),
+//   })
+// }
+
+// v3
+module.exports = (on, config) => {
+  on('before:browser:launch', (browser = {}, args) => {
+    if (browser.family === 'chrome') {
+      args.push('--disable-dev-shm-usage');
+    }
+
+    return args;
+  });
+}
+
 

@@ -1,6 +1,6 @@
 
 import { CustomCypress } from '../support/commands';
-import testData from "../fixtures/ConvertedExcelInputFKL.json"
+import testData from "../fixtures/FKv6.json"
       describe('Creates New policy', () => {
 
         beforeEach(function () {
@@ -10,35 +10,48 @@ import testData from "../fixtures/ConvertedExcelInputFKL.json"
             return false
           });
 
-          cy.fixture("ConvertedExcelInput").then(test => {
+          cy.fixture("FKv6").then(test => {
             // "this" is still the test context object
             this.testdata = test;
-            // cy.log(this.testdata).debug();
+         //  cy.log(this.testdata)
+        
           });
 
         });
-
+        let counter = 0;
       testData.Test_data_ID.forEach((data) => {
+       
               const compare = item => item.Test_data_ID === data.Test_data_ID;
 
         it(testData.Test_data_ID.find(compare).Test_case_Description, function () {
+          
+
+          if(counter<179){
+            counter++;
+            return;
+          }
           let round = 0;
             round = round+1;
             console.log(round);
             cy.clearCookies();
-
-            cy.login( this.testdata.Environment.find(compare).Username, this.testdata.Environment.find(compare).Password, this.testdata.Environment.find(compare).Database,);
+            // cy.log(this.testdata);
+            // cy.wait(100000);
+          
+            cy.login( "Clerk", "a", "GPF_UAT_Integration1");
             cy.get('#shell\\/menu\\/menu\\.new', { timeout: 100000 }).click();
             cy.get("#shell\\/menu\\/newApplication", { timeout: 100000 }).click();
             cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.mainDetails\\.company", this.testdata.Main_details.find(compare).Brand);
-            cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.product", this.testdata.Main_details.find(compare).Product);
+            cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.product", this.testdata.Main_details.find(compare).Product).then(()=>{
+            // cy.get("#vaadin-text-field-input-7 > slot:nth-child(2) > input").click({timeout:100000});
             cy.wait(3000);
-            cy.selectFromDropdown("#vaadin-text-field-input-7 > slot:nth-child(2) > input", this.testdata.Main_details.find(compare).Source)
+            cy.selectFromDropdown('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.mainDetails\\.source',"CoreSuite");
+
+            //  cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.mainDetails\\.source", this.testdata.Main_details.find(compare).Source)
             //cy.insertText("#vaadin-text-field-input-35", this.testdata.Person_details.find(compare).person_id);
-        
+          });
           
 
-            cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.allInsured", this.testdata.Main_details.find(compare).Role);
+            cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.allInsured", this.testdata.Main_details.find(compare).PersonRole);
             cy.get('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.mainDetails\\.payer',{timeout:100000}).invoke("attr","aria-checked").then(state=>{
               
               if(state==="true"){
@@ -60,14 +73,15 @@ import testData from "../fixtures/ConvertedExcelInputFKL.json"
     //GK Find
     cy.get('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.buttonFindPersonDetails').click().then(()=>{
 
-      cy.get("flow-component-renderer").find("#uiPersonSearchId\\/uiPersonSearchIdCust\\.nationalInsRef\\ ").find("input").type("15036511785");
-      cy.get("#uiPersonSearchId\\/PersonLookup\\.searchCRM").click();
-      cy.get("#uiPersonSearchId\\/ClientId").dblclick();
-      cy.get("#uiPersonSearchId\\/select").click();
+      cy.get("flow-component-renderer").find("#uiPersonSearchId\\/uiPersonSearchIdCust\\.nationalInsRef\\ ").find("input").type(this.testdata.Person_details.find(compare).IDReference);
+      cy.get("#uiPersonSearchId\\/PersonLookup\\.searchCRM").click({timeout:100000});
+      cy.get("#uiPersonSearchId\\/ClientId",{timeout:100000}).dblclick({timeout:100000});
+      cy.get("#uiPersonSearchId\\/select",{timeout:100000}).click({timeout:100000});
+      cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button",{timeout:5000}).click();
   })
   
             
-            cy.selectFromDropdownTest("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.retirementAge",85);      
+            cy.selectFromDropdownTest("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.retirementAge",this.testdata.Main_details.find(compare).IntendedRetirementAge);      
             cy.get("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.addPA").click().then((pop)=>{
               cy.get("#PaymentArrangementGrid\\/method").click().then(()=>{
                 cy.get("body").find("vaadin-combo-box-overlay").not("hidden").eq(0).find("#selector").find("#content").contains("Giro").click({multiple:true});
@@ -81,44 +95,87 @@ import testData from "../fixtures/ConvertedExcelInputFKL.json"
 
             
             cy.get("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.button_7", { timeout: 100000 }).click({force:true});
-            cy.insertText("#uiAgentSearchId\\/internalAgentID", "10001"); 
-            cy.get("#uiAgentSearchId\\/searchButton", { timeout: 100000 }).click().wait(3000);
-            cy.get("#uiAgentSearchId\\/table_17 > vaadin-grid-cell-content:nth-child(7)").dblclick().then(()=>{
-              
+            cy.insertText("#uiAgentSearchId\\/internalAgentID", "200006"); 
+            cy.get("#uiAgentSearchId\\/searchButton", { timeout: 100000 }).click().then(()=>{
+              // cy.get("#uiAgentSearchId\\/table_17 > vaadin-grid-cell-content:nth-child(7)").dblclick().then(()=>{
+            cy.get("#uiAgentSearchId\\/agentId").dblclick();
+           //   })
+           //cy.get("#uiAgentSearchId\\/select").click();  
             })
             cy.get("#uiAgentSearchId\\/select", { timeout: 100000, withinSubject:null }).click({force:true});
             cy.get('#mainNewBusiness\\/mainDetails\\/global\\.res\\.hexNext', { timeout: 100000 }).click();
             cy.get('#mainNewBusiness\\/PolicyRolesNew\\/global\\.res\\.hexNext', { timeout: 100000 }).click();
-            cy.get('[slot="vaadin-grid-cell-content-19"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/contType', { timeout: 100000 }).click();
-            cy.get('#mainNewBusiness\\/contributions\\/global\\.res\\.delRow', { timeout: 100000 }).click();
-            cy.get("#mainNewBusiness\\/contributions\\/table_22 > vaadin-grid-cell-content:nth-child(24)", { timeout: 100000 }).click();
-            cy.get('#mainNewBusiness\\/contributions\\/global\\.res\\.delRow', { timeout: 100000 }).click();
-            cy.get('[slot="vaadin-grid-cell-content-1"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/contType', { timeout: 100000 }).click();
-            cy.get('#main\\.conts_openLightbox', { timeout: 100000 }).click();
-          	cy.get("#vaadin-text-field-input-69 > slot:nth-child(2) > input").type(this.testdata.Contributon.find(compare).Premium);
-         
-            cy.get("#main\\.conts_lightbox_done", { timeout: 100000 }).focus().click();
-            cy.get('[slot="vaadin-grid-cell-content-9"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/fundSelectionContLevel > .spml-addon-append > #mainNewBusiness\\/contributions\\/lookupButton_2', { timeout: 100000 }).click();
-            cy.get("#uiFunds\\/uiFundsGpfCust\\.addedItem", { timeout: 100000 }).click();
-            cy.get("#uiFunds\\/uiFundsGpfCust\\.fundProfile", { timeout: 100000 }).click().then(dropdown => {
-              cy.wrap(dropdown).get("#content").find("[part='content']").contains(this.testdata.Contributon.find(compare).Select_Funds).click({ force: true });
-              cy.get("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund", { timeout: 100000 }).click();
-              cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund", this.testdata.Contributon.find(compare).Profile_Category);
-              cy.get("#uiFunds\\/uiFundsGpfCust\\.investmentName1", { timeout: 100000 }).click();
-              cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.investmentName1", this.testdata.Contributon.find(compare).Investment_profile_name);
+            cy.get('#mainNewBusiness\\/coverages\\/nextStepButton',{timeout:100000}).click();
+            ///DELETE CONT TYPE ROWS
 
-              cy.get("#uiFunds\\/paymentFundsTable > vaadin-grid-cell-content:nth-child(30)").find("input").focus().clear({ force: true }).type(this.testdata.Contributon.find(compare).Allocation_percent, { force: true });
+            cy.get('#mainNewBusiness\\/contributions\\/global\\.res\\.delRow', { timeout: 100000 }).click();
+            cy.get('#mainNewBusiness\\/contributions\\/global\\.res\\.delRow', { timeout: 100000 }).click();
+            cy.get('#mainNewBusiness\\/contributions\\/global\\.res\\.delRow', { timeout: 100000 }).click();
 
-            });
-            cy.get("#uiFunds\\/okButton", { timeout: 100000 }).click();
+            //ADD NEW TYPE
+            let const1 = this.testdata.Contributon.find(compare).ContributonType1;
+            let const2 = this.testdata.Contributon.find(compare).ContributonType2;
+            let const3 = this.testdata.Contributon.find(compare).ContributonType3;
+
+            console.log("value:",const1);
+            console.log("value:",const2);
+            console.log("value:",const3);
+
+            if(const1){
+              cy.insertContType("#mainNewBusiness\\/contributions\\/contType",
+                this.testdata.Contributon.find(compare).ContributonType1,
+                this.testdata.Contributon.find(compare).Premium1,
+                '[slot="vaadin-grid-cell-content-9"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/fundSelectionContLevel > .spml-addon-append > #mainNewBusiness\\/contributions\\/lookupButton_2',
+                this.testdata.Contributon.find(compare).Fund_Profile_1,
+                this.testdata.Contributon.find(compare).Assetclass_ProfileCategory_1,
+                this.testdata.Contributon.find(compare).Investmentfund_Profilename_1,
+                "100");
+            }
+                 
+           if(const2){
+            cy.insertSingleType("#mainNewBusiness\\/contributions\\/contType",
+            this.testdata.Contributon.find(compare).ContributonType2,
+            this.testdata.Contributon.find(compare).Premium2,
+            '[slot="vaadin-grid-cell-content-18"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/fundSelectionContLevel > .spml-addon-append > #mainNewBusiness\\/contributions\\/lookupButton_22',
+            this.testdata.Contributon.find(compare).Fund_Profile_2,
+            this.testdata.Contributon.find(compare).Assetclass_ProfileCategory_2,
+            this.testdata.Contributon.find(compare).Investmentfund_Profilename_2,
+            "100"
+            )}
+
+                   
+           if(const3){
+            cy.insertTransferType("#mainNewBusiness\\/contributions\\/contType",
+            this.testdata.Contributon.find(compare).ContributonType3,
+            this.testdata.Contributon.find(compare).Premium3,
+            '[slot="vaadin-grid-cell-content-27"] > flow-component-renderer > #mainNewBusiness\\/contributions\\/fundSelectionContLevel > .spml-addon-append > #mainNewBusiness\\/contributions\\/lookupButton_22',
+            this.testdata.Contributon.find(compare).Fund_Profile_3,
+            this.testdata.Contributon.find(compare).Assetclass_ProfileCategory_3,
+            this.testdata.Contributon.find(compare).Investmentfund_Profilename_3,
+            "100"
+            )}
+            
             cy.get("#mainNewBusiness\\/contributions\\/saveButton").click({ force: true });
-            cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-vertical-layout > span:nth-child(1)", { timeout: 100000 }).invoke('text').then((text) => {
+
+            cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-vertical-layout").find(".confirm-word-wrap", { timeout: 100000 }).invoke('text').then((text) => {
 
               var policyNum = text.split(" ")[2];
 
               cy.wrap(policyNum).as('policyNum');
-              console.log(policyNum.split(" ")[2]);
-            });
+              console.log(policyNum);
+              cy.writeFile("C:\\Users\\g024068\\OneDrive - Gjensidige Forsikring ASA\\Dokumenter\\GitHub\\coresuiteauto\\coresuiteautooutput.txt",policyNum + " " + this.testdata.Person_details.find(compare).IDReference + " row: " + round + "\n"  ,{flag:'a'});
+
+            })
+            cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button.spml-primary",{timeout:100000}).click();
+            cy.get("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.newBussines",{timeout:100000});
+            cy.selectFromDropdown("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.newBussines","Pre Active");
+        
+            
+            cy.get('#mainNewBusiness\\/mainDetails\\/saveButton',{timeout:10000}).click();
+            cy.wait(3000);
+           cy.screenshot();
+         
+
         
     });
           });

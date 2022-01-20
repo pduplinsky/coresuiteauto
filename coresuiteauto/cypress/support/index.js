@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 require('cypress-xpath')
+//require('cypress-failed-log')
 
 // before(' Load and read ', () => {
 //     cy.task('readXlsx', { file: './cypress/fixtures/input.xlsx' }).then((rows) => {
