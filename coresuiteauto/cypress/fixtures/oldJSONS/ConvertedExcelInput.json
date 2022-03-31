@@ -81,32 +81,32 @@
     "Person_details": [
         {
             "Test_data_ID": "1",
-            "ID_reference": "18104500958",
+            "ID_reference": "28116400792",
             "person_id": "108"
         },
         {
             "Test_data_ID": "2",
-            "ID_reference": "18104300401",
-            "person_id": "112"
+            "ID_reference": "11117815104",
+            "person_id": "108"
         },
         {
             "Test_data_ID": "3",
-            "ID_reference": "18104500958",
+            "ID_reference": "20047105855",
             "person_id": "108"
         },
         {
             "Test_data_ID": "4",
-            "ID_reference": "20076700401",
+            "ID_reference": "15036511785",
             "person_id": "108"
         },
         {
             "Test_data_ID": "5",
-            "ID_reference": "251285A1175",
+            "ID_reference": "24116500929",
             "person_id": "108"
         },
         {
             "Test_data_ID": "6",
-            "ID_reference": "100294A0394",
+            "ID reference": "2309590067",
             "person_id": "108"
         }
     ],
@@ -115,7 +115,7 @@
         {
             "Test_data_ID": "1",
             "Brand": "GPF",
-            "Product": "FK",
+            "Product": "IPS",
             "Source": "CoreSuite",
             "Policy Status": "Quote",
             "Person ID": "GK",
@@ -123,7 +123,7 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "67",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
@@ -138,14 +138,14 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "70",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
         {
             "Test_data_ID": "3",
             "Brand": "GPF",
-            "Product": "FK",
+            "Product": "IPS",
             "Source": "CoreSuite",
             "Policy Status": "Quote",
             "Person ID": "GK",
@@ -153,7 +153,7 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "67",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
@@ -168,7 +168,7 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "70",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
@@ -183,7 +183,7 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "67",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
@@ -198,7 +198,7 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "85",
+            "Intended_retirement_age": "65",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         }

@@ -1,0 +1,271 @@
+{
+    "Environment": [
+        {
+            "Test_data_ID": "1",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_SIT_Automation"
+        },
+        {
+            "Test_data_ID": "1",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_SIT_Automation"
+        },
+        {
+            "Test_data_ID": "2",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_UAT_05"
+        },
+        {
+            "Test_data_ID": "3",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_UAT_05"
+        },
+        {
+            "Test_data_ID": "4",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_UAT_05"
+        },
+        {
+            "Test_data_ID": "5",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_UAT_05"
+        },
+        {
+            "Test_data_ID": "6",
+            "Username": "Clerk",
+            "Password": "a",
+            "Database": "GPF_UAT_05"
+        }
+    ],
+    "Test_data_ID": [
+        {
+            "Test_data_ID": "1",
+            "Test_case_Description": "New Quote for a person from GK with an IPS product and regular contribution",
+            "Comment": "Must remember to close the payment"
+        },
+        {
+            "Test_data_ID": "2",
+            "Test_case_Description": "New Quote for a person from GK with FKL product",
+            "Comment": "Can this have a payment and not close the payment?"
+        },
+        {
+            "Test_data_ID": "3",
+            "Test_case_Description": "New Quote for a person from GK with an IPS product and regular contribution",
+            "Comment": "Can this have a payment and not close the payment?"
+        },
+        {
+            "Test_data_ID": "4",
+            "Test_case_Description": "New Quote for a person from GK with FKL product",
+            "Comment": "Can this have a payment and not close the payment?"
+        },
+        {
+            "Test_data_ID": "5",
+            "Test_case_Description": "New application for a person from GK with FP product and transfer contribution",
+            "Comment": "Can this have a payment and not close the payment?"
+        },
+        {
+            "Test_data_ID": "6",
+            "Test_case_Description": "New application for a person from GK with IPS product and single contribution",
+            "Comment": "Can this have a payment and not close the payment?"
+        }
+    ],
+    "Person_details": [
+        {
+            "Test_data_ID": "1",
+            "ID_reference": "28076501337",
+            "person_id": "108"
+        },
+        {
+            "Test_data_ID": "2",
+            "ID_reference": "10128918332",
+            "person_id": "112"
+        },
+        {
+            "Test_data_ID": "3",
+            "ID_reference": "14048323562",
+            "person_id": "108"
+        },
+        {
+            "Test_data_ID": "4",
+            "ID_reference": "27088916862",
+            "person_id": "108"
+        },
+        {
+            "Test_data_ID": "5",
+            "ID_reference": "050290A0406",
+            "person_id": "108"
+        },
+        {
+            "Test_data_ID": "6",
+            "ID_reference": "060386A1125",
+            "person_id": "108"
+        }
+    ],
+    "Main_details": [
+        {
+            "Test_data_ID": "1",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "2",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "3",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "4",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "5",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "6",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        }
+    ],
+    "Policy_Roles": [
+        {
+            "Test_data_ID": "1"
+        },
+        {
+            "Test_data_ID": "2"
+        }
+    ],
+    " Covers_FF": [
+        {
+            "Not in use for now": "This option dissappear when you choose an other product than FF "
+        }
+    ],
+    "Contributon": [
+        {
+            "Test_data_ID": "1",
+            "Contribution_type1": "Regular",
+            "Premium1": "1000",
+            "Select_Funds1": "Fund",
+            "Allocation_percent1": "100%",
+            "Profile_Category1": "Equity",
+            "Investment_profile_name1": "Eika Norge"
+        },
+        {
+            "Test_data_ID": "2",
+            "Contribution_type1": "Regular",
+            "Premium1": "1000",
+            "Select_Funds1": "Fund",
+            "Allocation_percent1": "100%",
+            "Profile_Category1": "Equity",
+            "Investment_profile_name1": "Eika Norge"
+        },
+        {
+            "Test_data_ID": "3",
+            "Contribution_type1": "Single",
+            "Premium": "10000",
+            "Select_Funds": "Fund",
+            "Allocation_percent": "100%",
+            "Profile_Category": "Equity",
+            "Investment_profile_name": "Eika Norge"
+        },
+        {
+            "Test_data_ID": "4",
+            "Contribution_type": "Regular",
+            "Premium": "1000",
+            "Select_Funds": "Fund",
+            "Allocation_percent": "200%",
+            "Profile_Category": "Equity",
+            "Investment_profile_name": "Eika Norge"
+        },
+        {
+            "Test_data_ID": "5",
+            "Contribution_type": "Transfer",
+            "Premium": "100000",
+            "Select_Funds": "Fund",
+            "Allocation_percent": "100%",
+            "Profile_Category": "Equity",
+            "Investment_profile_name": "Alfred Berg Norge"
+        },
+        {
+            "Test_data_ID": "6",
+            "Contribution_type": "Single",
+            "Premium": "200000",
+            "Select_Funds": "Fund",
+            "Allocation_percent": "100%",
+            "Profile_Category": "Equity",
+            "Investment_profile_name": "Holberg Norden A"
+        }
+    ]
+}

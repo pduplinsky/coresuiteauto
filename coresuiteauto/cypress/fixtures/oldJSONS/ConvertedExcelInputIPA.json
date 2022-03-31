@@ -5,43 +5,43 @@
     "Test_data_ID":"1",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"1",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"2",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"3",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"4",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"5",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 },
 {
     "Test_data_ID":"6",
     "Username" : "Clerk",
     "Password" : "a",
-    "Database" : "GPF_SIT_Automation"
+    "Database" : "GPF_UAT_Automation"
 }
 
 ],
@@ -81,32 +81,32 @@
     "Person_details": [
         {
             "Test_data_ID": "1",
-            "ID_reference": "28116400792",
+            "ID_reference": "19039119504",
             "person_id": "108"
         },
         {
             "Test_data_ID": "2",
-            "ID reference": "11117815104",
-            "person_id": "108"
+            "ID_reference": "220383A0899",
+            "person_id": "112"
         },
         {
             "Test_data_ID": "3",
-            "ID reference": "20047105855",
+            "ID_reference": "100692A0312",
             "person_id": "108"
         },
         {
             "Test_data_ID": "4",
-            "ID reference": "15036511785",
+            "ID_reference": "031185A1165",
             "person_id": "108"
         },
         {
             "Test_data_ID": "5",
-            "ID reference": "24116500929",
+            "ID_reference": "050290A0406",
             "person_id": "108"
         },
         {
             "Test_data_ID": "6",
-            "ID reference": "2309590067",
+            "ID_reference": "060386A1125",
             "person_id": "108"
         }
     ],
@@ -114,66 +114,6 @@
 
         {
             "Test_data_ID": "1",
-            "Brand": "GPF",
-            "Product": "IPS",
-            "Source": "CoreSuite",
-            "Policy Status": "Quote",
-            "Person ID": "GK",
-            "Role": "Main Insured",
-            "Payer": "YES",
-            "Owner": "YES",
-            "Payer_ID": "N/A",
-            "Intended_retirement_age": "67",
-            "Method": "Giro",
-            "Arrangement_ID": "Arr1"
-        },
-        {
-            "Test_data_ID": "2",
-            "Brand": "GPF",
-            "Product": "FK",
-            "Source": "CoreSuite",
-            "Policy Status": "Quote",
-            "Person ID": "GK",
-            "Role": "Main Insured",
-            "Payer": "YES",
-            "Owner": "YES",
-            "Payer_ID": "N/A",
-            "Intended_retirement_age": "70",
-            "Method": "Giro",
-            "Arrangement_ID": "Arr1"
-        },
-        {
-            "Test_data_ID": "3",
-            "Brand": "GPF",
-            "Product": "IPS",
-            "Source": "CoreSuite",
-            "Policy Status": "Quote",
-            "Person ID": "GK",
-            "Role": "Main Insured",
-            "Payer": "YES",
-            "Owner": "YES",
-            "Payer_ID": "N/A",
-            "Intended_retirement_age": "67",
-            "Method": "Giro",
-            "Arrangement_ID": "Arr1"
-        },
-        {
-            "Test_data_ID": "4",
-            "Brand": "GPF",
-            "Product": "FK",
-            "Source": "CoreSuite",
-            "Policy Status": "Quote",
-            "Person ID": "GK",
-            "Role": "Main Insured",
-            "Payer": "YES",
-            "Owner": "YES",
-            "Payer_ID": "N/A",
-            "Intended_retirement_age": "70",
-            "Method": "Giro",
-            "Arrangement_ID": "Arr1"
-        },
-        {
-            "Test_data_ID": "5",
             "Brand": "GPF",
             "Product": "IPA",
             "Source": "CoreSuite",
@@ -183,14 +123,14 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "67",
+            "Intended_retirement_age": "85",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         },
         {
-            "Test_data_ID": "6",
+            "Test_data_ID": "2",
             "Brand": "GPF",
-            "Product": "IPS",
+            "Product": "FK",
             "Source": "CoreSuite",
             "Policy Status": "Quote",
             "Person ID": "GK",
@@ -198,7 +138,67 @@
             "Payer": "YES",
             "Owner": "YES",
             "Payer_ID": "N/A",
-            "Intended_retirement_age": "65",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "3",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "4",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "5",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
+            "Method": "Giro",
+            "Arrangement_ID": "Arr1"
+        },
+        {
+            "Test_data_ID": "6",
+            "Brand": "GPF",
+            "Product": "FK",
+            "Source": "CoreSuite",
+            "Policy Status": "Quote",
+            "Person ID": "GK",
+            "Role": "Main Insured",
+            "Payer": "YES",
+            "Owner": "YES",
+            "Payer_ID": "N/A",
+            "Intended_retirement_age": "85",
             "Method": "Giro",
             "Arrangement_ID": "Arr1"
         }
@@ -217,11 +217,11 @@
             "Not in use for now": "This option dissappear when you choose an other product than FF "
         }
     ],
-    "Contributon": [
+    "Contribution": [
         {
             "Test_data_ID": "1",
             "Contribution_type": "Regular",
-            "Premium": "1000",
+            "Premium": "500000",
             "Select_Funds": "Fund",
             "Allocation_percent": "100%",
             "Profile_Category":"Equity",

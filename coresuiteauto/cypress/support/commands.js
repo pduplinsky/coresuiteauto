@@ -1,9 +1,9 @@
 import { find } from "lodash";
 
 Cypress.Commands.add("login",(user,pwd,db) => {
-// cy.visit("https://gjensidige-coresuite-uat-integration.sapiensmgs.com/coresuite_pl/coresuite");
+//cy.visit("https://gjensidige-coresuite-uat-integration.sapiensmgs.com/coresuite_pl/coresuite");
 
-cy.visit("https://gjensidige-coresuite-uat.sapiensmgs.com/coresuite_pl/coresuite");
+cy.visit("https://gjensidige-coresuite-sit.sapiensmgs.com/coresuite_pl/coresuite");
     cy.insertText("#user\\.name",user);
     cy.insertText("#user\\.password",pwd);
     cy.selectFromDropdown('#login-combo',db);
@@ -20,7 +20,7 @@ Cypress.Commands.add("selectFromDropdownTest",(selector,valueToPick) => {
       cy.wrap(scr).find("#content").each((item)=>{
         
         i++;
-        cy.wrap(scr).scrollTo(0,500*i)
+        cy.wrap(scr).scrollTo(0,500*i)/
         cy.wait(100);  
         console.log(item.text);
         if(item.text===valueToPick){
@@ -86,8 +86,10 @@ Cypress.Commands.add("insertContType", (selector,contributionType, Premium,looku
     cy.get("#uiFunds\\/uiFundsGpfCust\\.fundProfile", { timeout: 100000 }).click().then(dropdown => {
       cy.wrap(dropdown).get("#content").find("[part='content']").contains(selectFunds).click({ force: true });
       cy.get("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund", { timeout: 100000 }).click();
+      cy.wait(1000);
       cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund",profileCategory);
       cy.get("#uiFunds\\/uiFundsGpfCust\\.investmentName1", { timeout: 100000 }).click();
+      cy.wait(1000);
       cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.investmentName1", investmentProfileName);
       //cy.screenshot();
    //   cy.get("#uiFunds\\/paymentFundsTable > vaadin-grid-cell-content:nth-child(30)").find("input").focus().clear({ force: true }).type(allocationPercent, { force: true });
@@ -120,8 +122,10 @@ Cypress.Commands.add("insertContType", (selector,contributionType, Premium,looku
         cy.wait(2000);
         cy.wrap(dropdown).get("#content").find("[part='content']").contains(selectFunds).click({ force: true });
         cy.get("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund", { timeout: 100000 }).click();
+        cy.wait(1000);
         cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund",profileCategory);
         cy.get("#uiFunds\\/uiFundsGpfCust\\.investmentName1", { timeout: 100000 }).click();
+        cy.wait(1000);
         cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.investmentName1", investmentProfileName);
       //  cy.screenshot();
 
@@ -156,8 +160,10 @@ Cypress.Commands.add("insertContType", (selector,contributionType, Premium,looku
       cy.get("#uiFunds\\/uiFundsGpfCust\\.fundProfile", { timeout: 100000 }).click().then(dropdown => {
         cy.wrap(dropdown).get("#content").find("[part='content']").contains(selectFunds).click({ force: true });
         cy.get("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund", { timeout: 100000 }).click();
+        cy.wait(1000);
         cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.profileCategory1Fund",profileCategory);
         cy.get("#uiFunds\\/uiFundsGpfCust\\.investmentName1", { timeout: 100000 }).click();
+        cy.wait(1000);
         cy.selectFromDropdown("#uiFunds\\/uiFundsGpfCust\\.investmentName1", investmentProfileName);
   
         //cy.get("#uiFunds\\/paymentFundsTable > vaadin-grid-cell-content:nth-child(30)").find("input").focus().clear({ force: true }).type(allocationPercent, { force: true });

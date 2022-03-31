@@ -1,6 +1,6 @@
 import { curry, xorBy } from 'lodash';
 import { CustomCypress } from '../support/commands';
-import testData from "../fixtures/FK_60_prod.json"
+import testData from "../fixtures/IPS_tax.json"
       describe('Creates New policy', () => {
 
         beforeEach(function () {
@@ -10,7 +10,7 @@ import testData from "../fixtures/FK_60_prod.json"
             return false
           });
 
-          cy.fixture("FK_60_prod").then(test => {
+          cy.fixture("IPS_tax").then(test => {
             // "this" is still the test context object
             this.testdata = test;
             // cy.log(this.testdata).debug();
@@ -23,10 +23,10 @@ import testData from "../fixtures/FK_60_prod.json"
      
         it(testData.Test_data_ID.find(compare).Test_case_Description, function () {
 
-          if(counter<53){
-            counter++;
-            return
-          }
+          // if(counter<4){
+          //   counter++;
+          //   return
+          // }
 
       //  counter++;
           let round = 0;
@@ -35,8 +35,8 @@ import testData from "../fixtures/FK_60_prod.json"
             cy.clearCookies();
 
            // cy.login( this.testdata.Environment.find(compare).Username, this.testdata.Environment.find(compare).Password, this.testdata.Environment.find(compare).Database,);
-         // cy.login("Clerk","a","GPF_SIT_Automation");
-          cy.login("Clerk","E2E","GPF_UAT_Integration1");
+          cy.login("Clerk","a","GPF_SIT_Automation");
+         // cy.login("Clerk","E2E","GPF_UAT_Integration1");
           //cy.login("Clerk","a","GPF_UAT_Automation");
 
            cy.get('#shell\\/menu\\/menu\\.new', { timeout: 100000 }).click();
@@ -136,8 +136,8 @@ import testData from "../fixtures/FK_60_prod.json"
                    
             cy.get("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.button_7", { timeout: 100000 }).click({force:true});
            
-           cy.insertText("#uiAgentSearchId\\/internalAgentID", "200006"); 
-           // cy.insertText("#uiAgentSearchId\\/internalAgentID", "10001"); 
+           //cy.insertText("#uiAgentSearchId\\/internalAgentID", "200006"); 
+            cy.insertText("#uiAgentSearchId\\/internalAgentID", "200007"); 
             cy.get("#uiAgentSearchId\\/searchButton", { timeout: 100000 }).click().wait(3000);
             cy.get("#uiAgentSearchId\\/table_17 > vaadin-grid-cell-content:nth-child(7)").dblclick().then(()=>{
               
@@ -213,8 +213,8 @@ import testData from "../fixtures/FK_60_prod.json"
     cy.get('#mainNewBusiness\\/mainDetails\\/saveButton',{timeout:10000}).click();
     cy.wait(3000);
    cy.screenshot();
-   })
-           
+
+   });
   });
 });
 });
