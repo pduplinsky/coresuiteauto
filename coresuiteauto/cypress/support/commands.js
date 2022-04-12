@@ -3,7 +3,7 @@ import { find } from "lodash";
 Cypress.Commands.add("login",(user,pwd,db) => {
 //cy.visit("https://gjensidige-coresuite-uat-integration.sapiensmgs.com/coresuite_pl/coresuite");
 
-cy.visit("https://gjensidige-coresuite-sit.sapiensmgs.com/coresuite_pl/coresuite");
+cy.visit("https://gjensidige-coresuite-uat-integration.sapiensmgs.com/coresuite_pl/coresuite");
     cy.insertText("#user\\.name",user);
     cy.insertText("#user\\.password",pwd);
     cy.selectFromDropdown('#login-combo',db);
@@ -44,6 +44,14 @@ Cypress.Commands.add("selectFromDropdown",(selector,valueToPick) => {
   cy.wrap(dropdown).get("#content",{force:true,timeout:20000}).contains(valueToPick,{timeout:20000}).click({force:true,multiple:true});
 });
 });
+
+Cypress.Commands.add("selectFromDropdownMultiple",(selector,valueToPick) => {
+  cy.get(selector,{timeout:10000}).click().then(() => {
+    cy.wait(2000);
+  cy.get("#content",{force:true,timeout:20000}).contains(valueToPick,{timeout:20000}).click({force:true,multiple:true});
+});
+});
+
 
 
 

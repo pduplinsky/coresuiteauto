@@ -1,6 +1,6 @@
 import { curry, xorBy } from 'lodash';
 import { CustomCypress } from '../support/commands';
-import testData from "../fixtures/FK_60_prod.json"
+import testData from "../fixtures/FK_200.json"
       describe('Creates New policy', () => {
 
         beforeEach(function () {
@@ -10,7 +10,7 @@ import testData from "../fixtures/FK_60_prod.json"
             return false
           });
 
-          cy.fixture("FK_60_prod").then(test => {
+          cy.fixture("FK_200").then(test => {
             // "this" is still the test context object
             this.testdata = test;
             // cy.log(this.testdata).debug();
@@ -23,7 +23,7 @@ import testData from "../fixtures/FK_60_prod.json"
      
         it(testData.Test_data_ID.find(compare).Test_case_Description, function () {
 
-          if(counter<53){
+          if(counter<150){
             counter++;
             return
           }

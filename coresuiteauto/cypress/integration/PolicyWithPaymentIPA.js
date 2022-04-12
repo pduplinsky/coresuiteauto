@@ -1,6 +1,6 @@
 
 import { CustomCypress } from '../support/commands';
-import testData from "../fixtures/IPA_60_prod.json"
+import testData from "../fixtures/IPATAX.json"
 import { xorBy } from 'lodash';
       describe('Creates New policy', () => {
 
@@ -11,7 +11,7 @@ import { xorBy } from 'lodash';
             return false
           });
 
-          cy.fixture("IPA_60_prod").then(test => {
+          cy.fixture("IPATAX").then(test => {
             // "this" is still the test context object
             this.testdata = test;
             // cy.log(this.testdata).debug()
@@ -28,13 +28,13 @@ import { xorBy } from 'lodash';
             console.log(round);
             cy.clearCookies();
 
-            if(counter<4){
+            if(counter<3){
               counter++;
               return;
             }
 
          //  cy.login("Clerk","E2E","GPF_UAT_Integration1");
-          cy.login("Clerk","a","GPF_SIT_Automation");
+          cy.login("Clerk","a","GPF_SIT_Integration2");
 
             cy.get('#shell\\/menu\\/menu\\.new', { timeout: 100000 }).click();
             cy.get("#shell\\/menu\\/newApplication", { timeout: 100000 }).click();
@@ -70,29 +70,50 @@ import { xorBy } from 'lodash';
             })
 
     //GK FIND
-  cy.get('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.buttonFindPersonDetails').click().then(()=>{
+    var clientExist = false;
+//   cy.get('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.buttonFindPersonDetails').click().then(()=>{
 
-    cy.get("flow-component-renderer").find("#uiPersonSearchId\\/uiPersonSearchIdCust\\.nationalInsRef\\ ").find("input").type(this.testdata.Person_details.find(compare).IDReference);
-    cy.get("#uiPersonSearchId\\/PersonLookup\\.searchCRM").click({timeout:100000});
-    cy.get("#uiPersonSearchId\\/ClientId",{timeout:100000}).dblclick({timeout:100000});
-    cy.get("#uiPersonSearchId\\/select",{timeout:100000}).click({timeout:100000});
+//     cy.get("flow-component-renderer").find("#uiPersonSearchId\\/uiPersonSearchIdCust\\.nationalInsRef\\ ").find("input").type(this.testdata.Person_details.find(compare).IDReference);
+//     cy.get("#uiPersonSearchId\\/PersonLookup\\.searchCRM").click({timeout:100000});
+//     cy.get("#uiPersonSearchId\\/ClientId",{timeout:100000}).dblclick({timeout:100000});
+//     cy.get("#uiPersonSearchId\\/select",{timeout:100000}).click({timeout:100000});
 
-      cy.wait(3000);
-      cy.get("body").then((body)=>{
-        if(body.find("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button").length > 0){
-         cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > div").invoke("text").then((text)=>{
+//       cy.wait(3000);
+//       cy.get("body").then((body)=>{
+//         if(body.find("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button").length > 0){
+//          cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > div").invoke("text").then((text)=>{
               
              
-                var clientID = text.split(" ")[2];
-                cy.wrap(clientID).as('clientID');
-              cy.get('@clientID').then((text)=>{
-                  console.log(text);
-              });
-         });
-         cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button",{timeout:10000}).click();
+//                 var clientID = text.split(" ")[2];
+//                 cy.wrap(clientID).as('clientID');
+//               cy.get('@clientID').then((text)=>{
+//                   console.log(text);
+//               });
+//          });
+//          cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button",{timeout:10000}).click();
 
-        }
-      });
+//         }
+//       });
+
+// })
+
+cy.get('#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.buttonFindPersonDetails').click().then(()=>{
+
+  cy.get("flow-component-renderer").find("#uiPersonSearchId\\/uiPersonSearchIdCust\\.nationalInsRef\\ ").find("input").type(this.testdata.Person_details.find(compare).IDReference);
+  cy.get("#uiPersonSearchId\\/PersonLookup\\.searchCRM").click({timeout:100000});
+  cy.get("#uiPersonSearchId\\/ClientId",{timeout:100000}).dblclick({timeout:100000});
+  cy.get("#uiPersonSearchId\\/select",{timeout:100000}).click({timeout:100000});
+
+    cy.wait(3000);
+    cy.get("body").then((body)=>{
+      if(body.find("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button").length > 0){
+      cy.wait(2000);
+       cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button",{timeout:10000}).click();
+       clientExist=true;
+       console.log("Client Exists ? " + clientExist)
+
+      }
+    });
 
 })
             
@@ -108,7 +129,7 @@ import { xorBy } from 'lodash';
             })  
           
             cy.get("#mainNewBusiness\\/mainDetails\\/mainDetailsGPFCust\\.button_7", { timeout: 100000 }).click({force:true});
-            cy.insertText("#uiAgentSearchId\\/internalAgentID", "200007"); 
+            cy.insertText("#uiAgentSearchId\\/internalAgentID", "200006"); 
             cy.get("#uiAgentSearchId\\/searchButton", { timeout: 100000 }).click().wait(3000);
             cy.get("#uiAgentSearchId\\/table_17 > vaadin-grid-cell-content:nth-child(7)").dblclick().then(()=>{
               
@@ -158,31 +179,37 @@ import { xorBy } from 'lodash';
           cy.screenshot();
 
 
-          cy.wait(10000);
+          cy.wait(2000);
               //?CLICK ON RELOAD
           cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button.spml-primary").find("#button").click({force:true});
  cy.wait(2000);
           ///Click on NEW EXTERNAL PAYMENT MENU
- cy.get("div > vaadin-menu-bar-button:nth-child(3)").click({force:true}).then(()=>{
-  cy.wait(2000);
+ cy.get("div > vaadin-menu-bar-button:nth-child(3)").click({force:true});
+
 
     //Proceed to NEW EXTERNAL PAYMENT
  cy.get("#shell\\/menu\\/externalPayment").click({timeout:10000}).then(()=>{
   cy.wait(2000);
-
-     //FILL CLIENT NUMBER
-     cy.get("@clientID").then((text)=>{
+  //SELECT LAST CREATED CLIENT
+  cy.get("#externalPayment\\/lookupButton").click({force:true});
+  cy.get("#uiClientSearchId\\/searchButton").click();
+  cy.wait(3000);
+  cy.get("#uiClientSearchId\\/table_1 > vaadin-grid-cell-content:nth-child(12)").click({force:true});
+  cy.get("#uiClientSearchId\\/selectButton").click();
+  cy.wait(2000);
+    //  //FILL CLIENT NUMBER
+    //  cy.get("@clientID").then((text)=>{
       
-      cy.insertText("#externalPayment\\/idtxt",text);
+    //   cy.insertText("#externalPayment\\/idtxt",text);
 
      
-     });
- })
-});
-cy.wait(2000);
+    //  });
+  
+  });
+
 
  //FILL BRAND
-// cy.selectFromDropdown("#externalPayment\\/company","Gjensidige Pensjonsforsikring");
+ cy.selectFromDropdown("#externalPayment\\/company","Gjensidige Pensjonsforsikring");
  cy.wait(2000);
  //FILL PAYMENT METHOD -  GIRO
  cy.selectFromDropdown("#externalPayment\\/paymentArrangement","Giro");
@@ -191,18 +218,40 @@ cy.wait(2000);
  //cy.selectFromDropdown("#externalPayment\\/accountShortCode","Payment IN (KID)");
  cy.selectFromDropdown("#externalPayment\\/accountShortCode","Manual Payments to Bank Account");
 
+cy.insertText("#externalPayment\\/amount",this.testdata.Contributon.find(compare).Premium3);
+cy.wait(2000);
  //ADD PAYMENT DESTINATION
  cy.get("#externalPayment\\/global\\.res\\.addRow").click({force:true}).then(()=>{
-     cy.selectFromDropdown("#externalPayment\\/type","Policy");
-     cy.selectFromDropdown("#externalPayment\\/subType","General");
-     cy.insertText("#externalPayment\\/identifiertxt",policyNum);
-     cy.selectFromDropdown("#externalPayment\\/contributionType","Transfer");
+      //cy.wait(300000);
+      cy.get("#externalPayment\\/type").filter("vaadin-combo-box").then((drop)=>{
+        cy.selectFromDropdownMultiple(drop,"Policy");
+      });
+
+      cy.get("#externalPayment\\/subType").filter("vaadin-combo-box").then((drop)=>{
+        cy.selectFromDropdownMultiple(drop,"General");
+      });
+    
+     cy.insertText("#externalPayment\\/identifiertxt",this.policyNum);
+     cy.get("#externalPayment\\/identifiertxt").filter("vaadin-text-field").blur();
+      cy.wait(2000);
+     cy.get("#externalPayment\\/contributionType").filter("vaadin-combo-box").then((drop)=>{
+      cy.selectFromDropdownMultiple(drop,"Transfer");
+    });
+  
      cy.insertText("#externalPayment\\/assignedAmount", this.testdata.Contributon.find(compare).Premium3);
      cy.get("#label\\.paymentDestination_lightbox_done").click({force:true});
  });
 
- cy.get("#externalPayment\\/saveButton").click({force:true,timeout:10000});
 
+ cy.get("#externalPayment\\/saveButton").click({force:true,timeout:10000});
+ cy.wait(2000);
+ cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button").click({force:true});
+cy.wait(2000);
+cy.get("#externalPayment\\/cancelButton").click({force:true});
+cy.wait(2000);
+ cy.get("#mainNewBusiness\\/mainDetails\\/saveButton").click({force:true});
+ cy.get("#overlay > flow-component-renderer > div > vaadin-vertical-layout > vaadin-horizontal-layout > vaadin-button").click();
+ cy.wait(2000);
 
 
 
